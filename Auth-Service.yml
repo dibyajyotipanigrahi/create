@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: Auth-Service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/dibya
+    username: root
+    password: dibya
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Ov23liTeLrCM0xEoql2S
+            client-secret: 34cd6e560628b38e8fbaa22c2d5282fa1c7dbccd
+            redirect-uri: "http://localhost:3333/login/oauth2/code/github"
+            scope: read:user, user:email
+          google:
+            client-id: 680696636899-0stbt1slebkiaqim6244j6bqgsubl1c2.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: "http://localhost:3333/login/oauth2/code/google"
+            scope: profile, email
+        provider:
+          github:
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            user-info-uri: https://api.github.com/user
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:1111/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+server:
+  port: 3333
