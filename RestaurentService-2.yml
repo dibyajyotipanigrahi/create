@@ -30,6 +30,4 @@ management:
 server:
   port: 4444
 
-logging:
-  level:
-    org.springframework: DEBUG
+
