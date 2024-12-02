@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: RestaurantService
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/dibya
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: dibya
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+  
+  boot:
+    admin:
+      client:
+        url: http://localhost:1111/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+server:
+  port: 4444
